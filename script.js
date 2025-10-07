@@ -20,5 +20,26 @@
     }
 
   });
-  
+
+  const element = document.getElementById("ex3_element");
+  const container1 = document.getElementById("ex3_one");
+  const container2 = document.getElementById("ex3_two");
+  element.addEventListener("dragstart", e => {
+    e.dataTransfer.setData("text/plain", e.target.id);
+  });
+  function allowDrop(e) {
+    e.preventDefault();
+  }
+  function dropHandler(e) {
+    e.preventDefault();
+    const id = e.dataTransfer.getData("text/plain");
+    const draggedelement = document.getElementById(id);
+    e.target.appendChild(draggedelement);
+  }
+
+  [container1, container2].forEach(container => {
+    container.addEventListener("dragover", allowDrop);
+    container.addEventListener("drop", dropHandler)
+  })
+
 })();

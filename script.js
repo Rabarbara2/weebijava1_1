@@ -37,9 +37,8 @@
     e.target.appendChild(draggedelement);
   }
 
-  [container1, container2].forEach(container => {
-    container.addEventListener("dragover", allowDrop);
-    container.addEventListener("drop", dropHandler)
-  })
+  container2.addEventListener("dragover", allowDrop);
+  container2.addEventListener("drop", dropHandler);
+
 
 })();
